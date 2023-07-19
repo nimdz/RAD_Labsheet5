@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labsheet5-Q2</title>
+</head>
+<body>
+  <script>
+    class Examination {
+         constructor(indexNumber, mcqMarks, essayMarks) {
+          this.indexNumber = indexNumber;
+          this.mcqMarks = mcqMarks;
+          this.essayMarks = essayMarks;
+          this.totalMarks = null;
+          this.grade = null;
+          this.result = null;
+        }
+
+        calculateTotalMarks() {
+          this.totalMarks = this.mcqMarks + this.essayMarks;
+        }
+      
+        calculateResult() {
+          if (this.totalMarks >= 50) {
+            this.result = "Pass";
+          } else {
+            this.result = "Fail";
+          }
+        }
+      
+        calculateGrade() {
+          if (this.totalMarks >= 75) {
+            this.grade = "A";
+          } else if (this.totalMarks >= 65 && this.totalMarks < 75) {
+            this.grade = "B";
+          } else if (this.totalMarks >= 55 && this.totalMarks < 65) {
+            this.grade = "C";
+          } else if (this.totalMarks >= 35 && this.totalMarks < 55) {
+            this.grade = "S";
+          } else {
+            this.grade = "W";
+          }
+        }
+
+      
+        displayDetails() {
+          console.log("Student Index Number:", this.indexNumber);
+          console.log("MCQ Marks:", this.mcqMarks);
+          console.log("Essay Marks:", this.essayMarks);
+          console.log("Total Marks:", this.totalMarks);
+          console.log("Result:", this.result);
+          console.log("Grade:", this.grade);
+        }
+      }
+      
+      const student1 = new Examination("1220",40,25);
+      student1.calculateTotalMarks();
+      student1.calculateResult();
+      student1.calculateGrade();
+      student1.displayDetails();
+    </script>      
+    
+</body>
+</html>

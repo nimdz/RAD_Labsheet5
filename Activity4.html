@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labsheet5-Q4(Books)</title>
+  </head>
+  <body>
+    <script>
+      class Book {
+        constructor(name, price, author, publisher) {
+          this.name = name;
+          this.price = price;
+          this.author = author;
+          this.publisher = publisher;
+        }
+
+        calculateDiscount() {
+          return 0; // Default discount is 0%
+        }
+
+        displayDetails() {
+          console.log("Book Details:");
+          console.log("Name:", this.name);
+          console.log("Price:", this.price);
+          console.log("Author:", this.author);
+          console.log("Publisher:", this.publisher);
+          console.log("Discount:", this.calculateDiscount() );
+        }
+      }
+
+      class EducationalBook extends Book {
+        calculateDiscount() {
+          return .20*this.price; // 20% discount for educational books
+        }
+      }
+
+      class Novel extends Book {
+        calculateDiscount() {
+          return .15*this.price; // 15% discount for novels
+        }
+      }
+
+      class ShortStory extends Book {
+        calculateDiscount() {
+          return .15*this.price; // 15% discount for short stories
+        }
+      }
+
+      class Biography extends Book {
+        calculateDiscount() {
+          return .10*this.price; // 10% discount for biographies
+        }
+      }
+
+      // Usage example
+      const educationalBook = new EducationalBook(
+        "Mathematics for Beginners",
+        5000,
+        "John Smith",
+        "ABC Publications"
+      );
+      educationalBook.displayDetails();
+
+      const novel = new Novel(
+        "The Great Gatsby",
+        2000,
+        "F. Scott Fitzgerald",
+        "XYZ Publishers"
+      );
+      novel.displayDetails();
+
+      const shortStory = new ShortStory(
+        "The Lottery",
+        1500,
+        "Shirley Jackson",
+        "PQR Books"
+      );
+      shortStory.displayDetails();
+
+      const biography = new Biography(
+        "Steve Jobs",
+        3000,
+        "Walter Isaacson",
+        "DEF Press"
+      );
+      biography.displayDetails();
+    </script>
+  </body>
+</html>
+ 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Abstract superclass for solids
+        class Solid {
+        constructor() {}
+
+        // Abstract method for calculating surface area
+        calculateSurfaceArea() {
+            throw new Error("Abstract method 'calculateSurfaceArea' must be implemented.");
+        }
+
+        // Abstract method for calculating volume
+        calculateVolume() {
+            throw new Error("Abstract method 'calculateVolume' must be implemented.");
+        }
+        }
+
+        // Subclass: Cube
+        class Cube extends Solid {
+        constructor(sideLength) {
+            super();
+            this.sideLength = sideLength;
+        }
+
+        // Method implementation for calculating surface area
+        calculateSurfaceArea() {
+            return 6 * Math.pow(this.sideLength, 2);
+        }
+
+        // Method implementation for calculating volume
+        calculateVolume() {
+            return Math.pow(this.sideLength, 3);
+        }
+        }
+
+        // Subclass: Cuboid
+        class Cuboid extends Solid {
+        constructor(length, width, height) {
+            super();
+            this.length = length;
+            this.width = width;
+            this.height = height;
+        }
+
+        // Method implementation for calculating surface area
+        calculateSurfaceArea() {
+            return 2 * (this.length * this.width + this.width * this.height + this.height * this.length);
+        }
+
+        // Method implementation for calculating volume
+        calculateVolume() {
+            return this.length * this.width * this.height;
+        }
+        }
+
+        // Subclass: Cylinder
+        class Cylinder extends Solid {
+        constructor(radius, height) {
+            super();
+            this.radius = radius;
+            this.height = height;
+        }
+
+        // Method implementation for calculating surface area
+        calculateSurfaceArea() {
+            return 2 * Math.PI * this.radius * (this.height + this.radius);
+        }
+
+        // Method implementation for calculating volume
+        calculateVolume() {
+            return Math.PI * Math.pow(this.radius, 2) * this.height;
+        }
+        }
+
+        // Subclass: Sphere
+        class Sphere extends Solid {
+        constructor(radius) {
+            super();
+            this.radius = radius;
+        }
+
+        // Method implementation for calculating surface area
+        calculateSurfaceArea() {
+            return 4 * Math.PI * Math.pow(this.radius, 2);
+        }
+
+        // Method implementation for calculating volume
+        calculateVolume() {
+            return (4 / 3) * Math.PI * Math.pow(this.radius, 3);
+        }
+        }
+
+        // Subclass: Cone
+        class Cone extends Solid {
+        constructor(radius, height) {
+            super();
+            this.radius = radius;
+            this.height = height;
+        }
+
+        // Method implementation for calculating surface area
+        calculateSurfaceArea() {
+            const slantHeight = Math.sqrt(Math.pow(this.radius, 2) + Math.pow(this.height, 2));
+            return Math.PI * this.radius * (this.radius + slantHeight);
+        }
+
+        // Method implementation for calculating volume
+        calculateVolume() {
+            return (1 / 3) * Math.PI * Math.pow(this.radius, 2) * this.height;
+        }
+        }
+
+        const cube = new Cube(5);
+        console.log("Cube Surface Area:", cube.calculateSurfaceArea());
+        console.log("Cube Volume:", cube.calculateVolume());
+
+        const cuboid = new Cuboid(4, 6, 8);
+        console.log("Cuboid Surface Area:", cuboid.calculateSurfaceArea());
+        console.log("Cuboid Volume:", cuboid.calculateVolume());
+
+        const cylinder = new Cylinder(3, 7);
+        console.log("Cylinder Surface Area:", cylinder.calculateSurfaceArea());
+        console.log("Cylinder Volume:", cylinder.calculateVolume());
+
+        const sphere = new Sphere(6);
+        console.log("Sphere Surface Area:", sphere.calculateSurfaceArea());
+        console.log("Sphere Volume:", sphere.calculateVolume());
+
+        const cone = new Cone(5, 10);
+        console.log("Cone Surface Area:", cone.calculateSurfaceArea());
+        console.log("Cone Volume:", cone.calculateVolume());
+
+    </script>
+</body>
+</html>

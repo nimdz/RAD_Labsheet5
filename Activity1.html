@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labsheet5-Q1</title>
+</head>
+<body>
+    <script>
+     class student{
+       constructor(indexNo,name,dateofBirth,address,contactNo,email){
+          this.indexNo=indexNo;
+          this.name=name;
+          this.dateofBirth=dateofBirth;
+          this.address=address;
+          this.contactNo=contactNo;
+          this.email=email;
+          this.groupNo=null;
+       }
+       setGroupNo(){
+        this.groupNo=(this.indexNo%4)+1;        
+       }
+  getDetails() {
+    console.log("Student Details:");
+    console.log("Index Number:", this.indexNo);
+    console.log("Name:", this.name);
+    console.log("Date of Birth:", this.dateofBirth);
+    console.log("Address:", this.address);
+    console.log("Contact Number:", this.contactNo);
+    console.log("Email Address:", this.email);
+    console.log("Group Number:", this.groupNo);
+  }
+}
+
+const student1 = new student(12200, "John Doe", "1990-01-01", "123 Main St", "1220", "john.doe@example.com");
+student1.setGroupNo();
+student1.getDetails();
+
+</script>
+    
+</body>
+</html>

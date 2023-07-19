@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labsheet5-Q5</title>
+  </head>
+  <body>
+    <script>
+      class Game {
+        constructor(name, levels) {
+          this.name = name;
+          this.levels = levels;
+        }
+
+        displayWinningMessage() {
+          console.log(`Congratulations! You won the ${this.name} game.`);
+        }
+
+        displayLosingMessage() {
+          console.log(`Oops! You lost the ${this.name} game.`);
+        }
+
+        play() {
+          console.log(`Playing ${this.name} game...`);
+        }
+
+        pause() {
+          console.log("Game paused.");
+        }
+
+        resume() {
+          console.log("Game resumed.");
+        }
+
+        cancel() {
+          console.log("Game canceled.");
+        }
+      }
+
+      class CarGame extends Game {
+        constructor() {
+          super("Car Game", ["beginner", "intermediate", "advanced"]);
+          this.winningScore = 100;
+        }
+
+        displayWinningMessage() {
+          super.displayWinningMessage();
+          console.log("You reached the winning score!");
+        }
+      }
+
+      class PuzzleGame extends Game {
+        constructor(timeLimit) {
+          super("Puzzle Game", ["beginner", "intermediate", "advanced"]);
+          this.timeLimit = timeLimit;
+        }
+
+        displayWinningMessage() {
+          super.displayWinningMessage();
+          console.log("You solved the puzzle within the time limit!");
+        }
+      }
+
+      class ShootingGame extends Game {
+        constructor() {
+          super("Shooting Game", ["beginner", "intermediate", "advanced"]);
+          this.selectedMission = "";
+        }
+
+        displayWinningMessage() {
+          super.displayWinningMessage();
+          console.log("You completed the selected mission!");
+        }
+      }
+
+      const carGame = new CarGame();
+      carGame.play();
+      carGame.displayWinningMessage();
+
+      const puzzleGame = new PuzzleGame(60); // 60 seconds time limit
+      puzzleGame.play();
+      puzzleGame.displayWinningMessage();
+
+      const shootingGame = new ShootingGame();
+      shootingGame.play();
+      shootingGame.displayWinningMessage();
+    </script>
+  </body>
+</html>
